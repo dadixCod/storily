@@ -3,6 +3,8 @@ const cors = require("cors");
 require("dotenv").config();
 const productsRouter = require("./routes/productRoutes");
 const categoryRouter = require("./routes/categoryRoutes");
+const subCategoryRouter = require("./routes/subCategoryRoutes");
+const brandRouter = require("./routes/brandRoutes");
 
 const app = express();
 
@@ -17,5 +19,7 @@ app.use("images/posters", express.static("public/posters"));
 //Routes
 app.use("/products", productsRouter);
 app.use("/categories", categoryRouter);
+app.use("/subcategories", subCategoryRouter);
+app.use("/brands", brandRouter);
 
 module.exports = app;
