@@ -5,6 +5,8 @@ const productsRouter = require("./routes/productRoutes");
 const categoryRouter = require("./routes/categoryRoutes");
 const subCategoryRouter = require("./routes/subCategoryRoutes");
 const brandRouter = require("./routes/brandRoutes");
+const variantTypeRouter = require("./routes/variantTypeRoutes");
+const variantRouter = require("./routes/variantRotues");
 
 const app = express();
 
@@ -19,7 +21,9 @@ app.use("images/posters", express.static("public/posters"));
 //Routes
 app.use("/products", productsRouter);
 app.use("/categories", categoryRouter);
-app.use("/subcategories", subCategoryRouter);
+app.use("/sub-categories", subCategoryRouter);
 app.use("/brands", brandRouter);
+app.use("/variant-types", variantTypeRouter);
+app.use("/variants", variantRouter);
 
 module.exports = app;
