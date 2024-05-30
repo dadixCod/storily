@@ -2,6 +2,8 @@ const multer = require("multer");
 const Category = require("../models/Category");
 const Product = require("../models/Product");
 const SubCategory = require("../models/SubCategory");
+const path = require("path");
+const fs = require("fs");
 
 const { uploadCategory } = require("../uploadFile");
 
@@ -29,6 +31,7 @@ exports.getOneCategory = async (req, res) => {
         .status(404)
         .json({ success: false, message: "Category not found." });
     }
+
     res.json({
       success: true,
       message: "Category retrieved successfully.",
@@ -169,6 +172,12 @@ exports.deleteCategory = async (req, res) => {
         .status(404)
         .json({ success: false, message: "Category not found." });
     }
+    const filePath = path.join(__dirname,'../public/category',path.basename(category.image));
+    fs.unlink(filePath,(err)=>{
+      if(err){
+        return res.status(500).json({ success: false, message: err.message });
+      }
+    })
     res.json({ success: true, message: "Category deleted successfully." });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });

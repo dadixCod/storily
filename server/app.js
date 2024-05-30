@@ -7,6 +7,7 @@ const subCategoryRouter = require("./routes/subCategoryRoutes");
 const brandRouter = require("./routes/brandRoutes");
 const variantTypeRouter = require("./routes/variantTypeRoutes");
 const variantRouter = require("./routes/variantRotues");
+const userRouter = require("./routes/userRoutes");
 
 const app = express();
 
@@ -25,5 +26,6 @@ app.use("/sub-categories", subCategoryRouter);
 app.use("/brands", brandRouter);
 app.use("/variant-types", variantTypeRouter);
 app.use("/variants", variantRouter);
+app.use("/users", userRouter);
 
 module.exports = app;
