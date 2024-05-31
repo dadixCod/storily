@@ -8,6 +8,9 @@ const brandRouter = require("./routes/brandRoutes");
 const variantTypeRouter = require("./routes/variantTypeRoutes");
 const variantRouter = require("./routes/variantRotues");
 const userRouter = require("./routes/userRoutes");
+const orderRouter = require("./routes/orderRoutes");
+const couponCodeRouter = require("./routes/couponCodeRoutes");
+const posterRouter = require("./routes/posterRoutes");
 
 const app = express();
 
@@ -27,5 +30,8 @@ app.use("/brands", brandRouter);
 app.use("/variant-types", variantTypeRouter);
 app.use("/variants", variantRouter);
 app.use("/users", userRouter);
+app.use("/orders", orderRouter);
+app.use("/coupons", couponCodeRouter);
+app.use("/posters", posterRouter);
 
 module.exports = app;
